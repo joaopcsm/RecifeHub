@@ -1,0 +1,214 @@
+# ==========================================
+# RECIFEHUB - .gitignore
+# Arquivos e informações que não devem ir ao GitHub
+# ==========================================
+
+
+# ==========================================
+# 1. VARIÁVEIS DE AMBIENTE E SEGREDOS
+# ==========================================
+
+.env
+.env.*
+!.env.example
+!.env.template
+
+.flaskenv
+
+# Credenciais e arquivos de autenticação
+secrets/
+credentials/
+*.secret
+*.credentials
+
+# Chaves privadas e certificados
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+*.cer
+
+# Arquivos de autenticação SSH
+id_rsa
+id_ed25519
+id_ecdsa
+*.pub
+
+# Configurações locais do PostgreSQL
+.pgpass
+.pg_service.conf
+
+
+# ==========================================
+# 2. PYTHON
+# ==========================================
+
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Ambientes virtuais
+venv/
+.venv/
+env/
+ENV/
+.conda/
+
+# Distribuição e pacotes
+build/
+dist/
+*.egg-info/
+.eggs/
+wheels/
+pip-wheel-metadata/
+
+# Testes e cobertura
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+
+# Configurações locais
+.mypy_cache/
+.ruff_cache/
+.dmypy.json
+.pyre/
+
+
+# ==========================================
+# 3. FLASK
+# ==========================================
+
+instance/
+.webassets-cache/
+
+# Logs do Flask
+flask.log
+
+
+# ==========================================
+# 4. POSTGRESQL E BANCO DE DADOS
+# ==========================================
+
+# Bancos locais
+*.db
+*.sqlite
+*.sqlite3
+
+# Backups e dumps
+*.dump
+*.backup
+*.bak
+*.sql.gz
+*.sql.zip
+
+# Diretórios de dados locais
+pgdata/
+postgres_data/
+database_data/
+
+# Logs do PostgreSQL
+postgresql.log
+
+
+# ==========================================
+# 5. FRONT-END / JAVASCRIPT
+# ==========================================
+
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Dependências e arquivos temporários
+.npm/
+.eslintcache
+.stylelintcache
+
+# Builds
+.next/
+.nuxt/
+dist/
+build/
+
+# Arquivos de cache
+.cache/
+.parcel-cache/
+.vite/
+
+
+# ==========================================
+# 6. UPLOADS E ARQUIVOS PRIVADOS
+# ==========================================
+
+# Arquivos enviados pelos usuários
+uploads/
+private_uploads/
+user_uploads/
+
+# Documentos potencialmente sensíveis
+*.docx
+*.xlsx
+*.xls
+*.pdf
+
+
+# ==========================================
+# 7. EDITORES E IDEs
+# ==========================================
+
+.vscode/
+.idea/
+*.iml
+
+# Configurações locais
+*.swp
+*.swo
+*~
+.DS_Store
+
+
+# ==========================================
+# 8. SISTEMA OPERACIONAL
+# ==========================================
+
+# Linux
+.Trash-*
+.nfs*
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+Desktop.ini
+
+# macOS
+.AppleDouble
+.LSOverride
+._*
+
+
+# ==========================================
+# 9. LOGS E ARQUIVOS TEMPORÁRIOS
+# ==========================================
+
+*.log
+logs/
+tmp/
+temp/
+*.tmp
+*.temp
+*.bak
+*.old
+
+
+# ==========================================
+# 10. DOCKER (DADOS LOCAIS)
+# ==========================================
+
+# Dados persistentes de containers
+.docker-data/
+docker-data/
