@@ -13,6 +13,18 @@
     function irParaCadastro() {
         window.location.href = "cadastro.html";
     }
+
+    function limparFiltros() {
+    // Limpa os campos de texto
+    document.querySelectorAll('.filters input[type="text"]').forEach(campo => {
+        campo.value = "";
+    });
+
+    // Volta os selects para a primeira opção
+    document.querySelectorAll('.filters select').forEach(select => {
+        select.selectedIndex = 0;
+    });
+}
 </script>
   
 </head>
@@ -87,22 +99,35 @@
         <input type="text" placeholder="Buscar por nome do projeto, área de conhecimento, palavra-chave...">
       </label>
 
-      <div class="filter">
-        <span class="filter-icon">▤</span>
-        Tipo de projeto <span style="margin-left:auto">⌄</span>
+      <div>
+       <select class="filter" id="subject" name="subject">
+            <option value=" Em Desenvolvimento"><span class="feature-icon">▤ </span>Em Desenvolvimento</option>
+            <option value="Pronto">Pronto</option>
+            <option value="Fase Incial">Fase Incial</option>
+        </select>
       </div>
 
-      <div class="filter">
-        <span class="filter-icon">⌂</span>
-        Área de conhecimento <span style="margin-left:auto">⌄</span>
+      
+
+     <div>
+       <select class="filter" id="subject" name="subject">
+            <option value=" Em Desenvolvimento"><span class="feature-icon">⌂ </span>Área de Conhecimento</option>
+            <option value="Pronto">Pronto</option>
+            <option value="Fase Incial">Fase Incial</option>
+        </select>
+      </div>
+ 
+        <div>
+       <select class="filter" id="subject" name="subject">
+            <option value=" Em Desenvolvimento"><span class="feature-icon">◷ </span>Status</option>
+            <option value="Pronto">Pronto</option>
+            <option value="Fase Incial">Fase Incial</option>
+        </select>
       </div>
 
-      <div class="filter">
-        <span class="filter-icon">◷</span>
-        Status <span style="margin-left:auto">⌄</span>
-      </div>
-
-      <button class="filter clear">Limpar filtros</button>
+      <button type="button" class="filter clear" onclick="limparFiltros()">
+    Limpar filtros
+</button>
     </div>
 
     <div class="layout">
