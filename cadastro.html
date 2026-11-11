@@ -287,19 +287,55 @@
   </div>
 
   <script>
-    function cadastrar(event) {
-      event.preventDefault();
+async function cadastrar(event) {
+    event.preventDefault();
 
-      const senha = document.getElementById("senha").value;
-      const confirmar = document.getElementById("confirmar").value;
+    const nome_completo = document.getElementById("nome").value;
+    const nome_usuario = document.getElementById("usuario").value;
+    const email = document.getElementById("email").value;
+    const senha = document.getElementById("senha").value;
+    const confirmar = document.getElementById("confirmar").value;
+    const tipo_usuario = document.getElementById("tipo").value;
 
-      if (senha !== confirmar) {
+    // Verifica se as senhas são iguais
+    if (senha !== confirmar) {
         alert("As senhas não são iguais.");
         return;
-      }
-
-      alert("Cadastro realizado com sucesso!");
     }
+
+    try {
+        const resposta = await fetch("http://127.0.0.1:5000/api/cadastro", {
+            method: "POST",
+
+            headers: {
+                "Content-Type": "application/json"
+            },
+
+            body: JSON.stringify({
+                nome_completo,
+                nome_usuario,
+                email,
+                senha,
+                tipo_usuario
+            })
+        });
+
+        const resultado = await resposta.json();
+
+        if (!resposta.ok) {
+            alert(resultado.erro);
+            return;
+        }
+
+        alert(resultado.mensagem);
+
+        document.querySelector("form").reset();
+
+    } catch (erro) {
+        console.error("Erro:", erro);
+        alert("Não foi possível conectar ao servidor.");
+    }
+}
   </script>
 
 </body>
