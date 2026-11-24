@@ -1,39 +1,20 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>RecifeHub</title>
   <link rel="stylesheet" href="style.css">
   <script>
-    function irParaLogin() {
-        window.location.href = "login.html";
-    }
-
-    function irParaCadastro() {
-        window.location.href = "cadastro.html";
-    }
-
-    function limparFiltros() {
-    // Limpa os campos de texto
-    document.querySelectorAll('.filters input[type="text"]').forEach(campo => {
-        campo.value = "";
-    });
-
-    // Volta os selects para a primeira opção
-    document.querySelectorAll('.filters select').forEach(select => {
-        select.selectedIndex = 0;
-    });
-}
-</script>
-  
+  </script>
 </head>
 
 <body>
 
   <header>
- <img src="imagens/Logo RecifeHub.png" alt="imagemlogo" class="logo">
-    </a>
+    <img src="imagens/Logo RecifeHub.png" alt="imagemlogo" class="logo">
+
 
     <nav class="nav">
       <a href="#">Início</a>
@@ -42,129 +23,205 @@
       <a href="#">Ajuda</a>
     </nav>
 
-    <div class="header-actions">
-      <div class="search-wrap">
-        <input class="search-mini" type="search" aria-label="Pesquisar">
-      </div>
-      <button class="btn btn-login" onclick="window.location.href='login.html'">
-    Entrar
-</button>
+    <div class="barra">
+      <form class="pesquisa" role="search" action="projetos.html" method="get">
+        <span class="pesquisa-icone" aria-hidden="true">⌕</span>
+        <input type="search" class="pesquisa-barra" name="q" placeholder="Buscar projetos, áreas, instituições..."
+          aria-label="Pesquisar projeto" autocomplete="off">
+        <button type="button" class="pesquisa-limpar" aria-label="Limpar busca" hidden>×</button>
+        <button type="submit" class="pesquisa-btn">Buscar</button>
+      </form>
 
-<button class="btn btn-register" onclick="window.location.href='cadastro.html'">
-    Cadastrar
-</button>
+      <button class="btn btn-login" onclick="window.location.href='login.html'">
+        Entrar
+      </button>
+
+      <button class="btn btn-register" onclick="window.location.href='cadastro.html'">
+        Cadastrar
+      </button>
     </div>
   </header>
 
   <section class="hero">
-    <div class="hero-content">
+    <div class="hero-conteudo">
       <h1>Conectando ideias,<br>impulsionando <span>projetos.</span></h1>
 
-      <p class="hero-description">
+      <p class="hero-descricao">
         O RecifeHub é um portal gratuito que reúne projetos em andamento
         e novas propostas, aproximando pessoas, instituições e ideias para
         transformar a nossa cidade.
       </p>
 
-      <div class="features">
-        <div class="feature">
-          <span class="feature-icon cap"></span>
+      <div class="caracters">
+        <div class="caracter">
+          <span class="caracter-icone cap"></span>
           <span>Pesquisas<br>acadêmicas</span>
         </div>
 
-        <div class="feature">
-          <span class="feature-icon bulb"></span>
+        <div class="caracter">
+          <span class="caracter-icone bulb"></span>
           <span>Projetos<br>pessoais</span>
         </div>
 
-        <div class="feature">
-          <span class="feature-icon bank"></span>
+        <div class="caracter">
+          <span class="caracter-icone bank"></span>
           <span>Demandas de<br>Instituições</span>
         </div>
 
-        <div class="feature">
-          <span class="feature-icon network"></span>
+        <div class="caracter">
+          <span class="caracter-icone network"></span>
           <span>Tudo em um<br>só lugar</span>
         </div>
       </div>
     </div>
 
     <div class="hero-photo"></div>
-  </section>
 
+
+  </section>
+  <!-- Conteudo-->
   <main>
-    <div class="filters">
-      <label class="filter">
-        <span class="filter-icon">⌕</span>
+    <!--filtros de pesquisa-->
+    <div class="filtros">
+      <label class="filtro">
+        <span class="filtro-icones">⌕</span>
         <input type="text" placeholder="Buscar por nome do projeto, área de conhecimento, palavra-chave...">
       </label>
 
       <div>
-       <select class="filter" id="subject" name="subject">
-            <option value=" Em Desenvolvimento"><span class="feature-icon">▤ </span>Em Desenvolvimento</option>
-            <option value="Pronto">Pronto</option>
-            <option value="Fase Incial">Fase Incial</option>
+        <select class="filtro" id="subject" name="subject">
+          <option value=" Em Desenvolvimento"><span class="filtro-icones">▤ </span>Em Desenvolvimento</option>
+          <option value="Pronto">Pronto</option>
+          <option value="Fase Incial">Fase Incial</option>
         </select>
       </div>
 
-      
 
-     <div>
-       <select class="filter" id="subject" name="subject">
-            <option value=" Em Desenvolvimento"><span class="feature-icon">⌂ </span>Área de Conhecimento</option>
-            <option value="Pronto">Pronto</option>
-            <option value="Fase Incial">Fase Incial</option>
-        </select>
-      </div>
- 
-        <div>
-       <select class="filter" id="subject" name="subject">
-            <option value=" Em Desenvolvimento"><span class="feature-icon">◷ </span>Status</option>
-            <option value="Pronto">Pronto</option>
-            <option value="Fase Incial">Fase Incial</option>
+
+      <div>
+        <select class="filtro" id="subject" name="subject">
+          <option value=" Em Desenvolvimento"><span class="filtro-icones">⌂ </span>Área de Conhecimento</option>
+          <option value="Pronto">Pronto</option>
+          <option value="Fase Incial">Fase Incial</option>
         </select>
       </div>
 
-      <button type="button" class="filter clear" onclick="limparFiltros()">
-    Limpar filtros
-</button>
+      <div>
+        <select class="filtro" id="subject" name="subject">
+          <option value=" Em Desenvolvimento"><span class="filtro-icones">◷ </span>Status</option>
+          <option value="Pronto">Pronto</option>
+          <option value="Fase Incial">Fase Incial</option>
+        </select>
+      </div>
+
+      <button type="button" class="filtro clear" onclick="limparFiltros()">Limpar filtros</button>
     </div>
 
     <div class="layout">
       <section>
-        <div class="section-heading">
+        <div class="section-cabecalho">
           <h2>Projetos em destaque</h2>
-          <a href="#" class="all-projects">Ver todos os projetos →</a>
+          <a href="#" class="todos-projetos">Ver todos os projetos →</a>
         </div>
 
-        <article class="project-card">
-          <div class="project-image">
-            <span class="tag">Pesquisa</span>
-          </div>
+        <div class="projetos-grid">
 
-          <div class="project-body">
-            <h3>Monitoramento da qualidade<br>da água no Rio Capibaribe</h3>
+    <article class="projeto-card">
+        <div class="projeto-image">
+            <span class="tag">Pesquisa</span>
+        </div>
+
+        <div class="projeto-body">
+            <h3>Monitoramento da qualidade da água no Rio Capibaribe</h3>
 
             <p>
-              Projeto de pesquisa que avalia os impactos
-              da poluição na qualidade da água e propõe
-              soluções sustentáveis para o rio.
+                Projeto de pesquisa que avalia os impactos
+                da poluição na qualidade da água e propõe
+                soluções sustentáveis para o rio.
             </p>
 
-            <div class="project-info">
-              <div>◉ Universidade Federal de Pernambuco (UFPE)</div>
-              <div>⌖ Recife - PE</div>
+            <div class="projeto-info">
+                <div>◉ Universidade Federal de Pernambuco (UFPE)</div>
+                <div>⌖ Recife - PE</div>
             </div>
+        </div>
+    </article>
 
-            <div class="placeholder-tag"></div>
-          </div>
-        </article>
+    <!-- Outros projetos seguem o mesmo padrão -->
+     <article class="projeto-card">
+        <div class="projeto-image">
+            <span class="tag">Pesquisa</span>
+        </div>
+
+        <div class="projeto-body">
+            <h3>Monitoramento da qualidade da água no Rio Capibaribe</h3>
+
+            <p>
+                Projeto de pesquisa que avalia os impactos
+                da poluição na qualidade da água e propõe
+                soluções sustentáveis para o rio.
+            </p>
+
+            <div class="projeto-info">
+                <div>◉ Universidade Federal de Pernambuco (UFPE)</div>
+                <div>⌖ Recife - PE</div>
+            </div>
+        </div>
+    </article>
+
+    <!-- Outros projetos seguem o mesmo padrão -->
+     <article class="projeto-card">
+        <div class="projeto-image">
+            <span class="tag">Pesquisa</span>
+        </div>
+
+        <div class="projeto-body">
+            <h3>Monitoramento da qualidade da água no Rio Capibaribe</h3>
+
+            <p>
+                Projeto de pesquisa que avalia os impactos
+                da poluição na qualidade da água e propõe
+                soluções sustentáveis para o rio.
+            </p>
+
+            <div class="projeto-info">
+                <div>◉ Universidade Federal de Pernambuco (UFPE)</div>
+                <div>⌖ Recife - PE</div>
+            </div>
+        </div>
+    </article>
+
+    <!-- Outros projetos seguem o mesmo padrão -->
+      <article class="projeto-card">
+        <div class="projeto-image">
+            <span class="tag">Pesquisa</span>
+        </div>
+
+        <div class="projeto-body">
+            <h3>Monitoramento da qualidade da água no Rio Capibaribe</h3>
+
+            <p>
+                Projeto de pesquisa que avalia os impactos
+                da poluição na qualidade da água e propõe
+                soluções sustentáveis para o rio.
+            </p>
+
+            <div class="projeto-info">
+                <div>◉ Universidade Federal de Pernambuco (UFPE)</div>
+                <div>⌖ Recife - PE</div>
+            </div>
+        </div>
+    </article>
+
+    <!-- Outros projetos seguem o mesmo padrão -->
+
+</div>
       </section>
 
       <aside>
-        <div class="side-card">
-          <div class="side-card-top">
-            <span class="side-card-icon">♧</span>
+        <div class="cartao-lado">
+          <div class="cartao-lado-topo">
+            <span class="cartao-lado-icone">♧</span>
             <h3>Tem um projeto?</h3>
           </div>
 
@@ -174,48 +231,48 @@
             ajudar a torná-la realidade.
           </p>
 
-          <a href="#" class="side-btn">Cadastrar projeto →</a>
+          <a href="#" class="lado-btn">Cadastrar projeto →</a>
         </div>
 
-        <h2 class="categories-title">Categorias de projetos</h2>
+        <h2 class="categoria-titulo">Categorias de projetos</h2>
 
-        <div class="category">
+        <div class="categoria">
           <span class="cat-icon">⌂</span>
           Pesquisa
           <span class="count">245</span>
         </div>
 
-        <div class="category">
+        <div class="categoria">
           <span class="cat-icon">▤</span>
           Teses
           <span class="count">118</span>
         </div>
 
-        <div class="category">
+        <div class="categoria">
           <span class="cat-icon">▤</span>
           Dissertações
           <span class="count">67</span>
         </div>
 
-        <div class="category">
+        <div class="categoria">
           <span class="cat-icon">⚙</span>
           Protótipos
           <span class="count">95</span>
         </div>
 
-        <div class="category">
+        <div class="categoria">
           <span class="cat-icon">♧</span>
           Projetos de Extensão
           <span class="count">87</span>
         </div>
 
-        <div class="category">
+        <div class="categoria">
           <span class="cat-icon">•••</span>
           Outros
           <span class="count">43</span>
         </div>
 
-        <div class="side-card city-card">
+        <div class="cartao-lado city-card">
           <span class="city-icon">♙</span>
           <p>
             Juntos por uma cidade<br>
@@ -238,4 +295,5 @@
   </footer>
 
 </body>
+
 </html>
