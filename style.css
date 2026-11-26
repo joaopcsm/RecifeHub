@@ -469,7 +469,7 @@ height: 22px;
 
     /* ===== RODAPÉ ===== */
     footer {
-      height: 100px;
+      min-height: 75px;
       background: #233e49;
       color: white;
       display: flex;
