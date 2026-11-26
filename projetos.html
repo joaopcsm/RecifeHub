@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RecifeHub</title>
+  <style>
+ * {
+     box-sizing: border-box;
+     margin: 0;
+     padding: 0;
+ }
+
+ :root {
+     --dark: #04151F;
+     --dark-2: #04151F;
+     --cyan: #19eee2;
+     --cyan-light: #b9f8f5;
+     --text: #243b47;
+     --muted: #74838a;
+     --bg: #dedede;
+     --white: #ffffff;
+     --border: #d3d8da;
+ }
+
+ body {
+     font-family: Arial, Helvetica, sans-serif;
+     background: var(--bg);
+     color: var(--text);
+ }
+
+ a {
+     color: inherit;
+     text-decoration: none;
+ }
+
+ /* ===== CABEÇALHO ===== */
+
+ header {
+     height: 64px;
+     background: var(--dark);
+     color: white;
+     display: flex;
+     align-items: center;
+     padding: 0 27px;
+     gap: 40px;
+ }
+
+ .logo {
+     height: 75px;
+     padding: 10px;
+     border-radius: 35%;
+ }
+
+ .nav {
+     display: flex;
+     gap: 36px;
+     align-items: center
+ }
+
+ .nav a {
+     font-weight: 700;
+     padding: 10px 12px;
+     border-bottom: 1px solid rgba(255, 255, 255, .65);
+ }
+
+ .nav a:hover {
+     color: var(--cyan);
+     border-color: var(--cyan);
+ }
+
+ .barra {
+     margin-left: auto;
+     display: flex;
+     align-items: center;
+     gap: 35px;
+ }
+
+ .btn {
+     height: 35px;
+     padding: 0 29px;
+     border-radius: 10px;
+     font-weight: 700;
+     font-size: 15px;
+     cursor: pointer;
+ }
+
+ .btn-login {
+     background: transparent;
+     color: white;
+     border: 2px solid var(--cyan);
+ }
+
+ .btn-register {
+     background: var(--cyan);
+     color: #06303a;
+     border: 2px solid var(--cyan);
+ }
+
+ /* ===== Pesquisa ===== */
+
+
+ .pesquisa {
+     display: flex;
+     align-items: center;
+     height: 30px;
+     background: #fff;
+     border: 1px solid var(--border);
+     border-radius: 10px;
+     overflow: hidden;
+     width: 340px;
+     max-width: 100%;
+ }
+
+
+
+ .pesquisa-icone {
+     padding: 0 8px 0 12px;
+     color: var(--muted);
+     font-size: 18px;
+ }
+
+ .pesquisa-barra {
+     flex: 1;
+     min-width: 0;
+     height: 100%;
+     border: 0;
+     outline: 0;
+     font-size: 14px;
+     color: var(--text);
+     background: transparent;
+ }
+
+ .pesquisa-barra::placeholder {
+     color: var(--muted);
+ }
+
+ .pesquisa-limpar {
+     border: 0;
+     background: transparent;
+     font-size: 20px;
+     padding: 0 6px;
+     cursor: pointer;
+     color: var(--muted);
+ }
+
+ .pesquisa-btn {
+     height: 100%;
+     padding: 0 16px;
+     border: 0;
+     background: var(--cyan);
+     color: #06303a;
+     font-weight: 700;
+     cursor: pointer;
+     white-space: nowrap;
+ }
+
+ .pesquisa-btn:hover {
+     filter: brightness(0.95);
+ }
+
+ /* ===== HERO ===== */
+.hero {
+    position: relative;
+    min-height: 150px;
+    display: flex;
+    align-items: center; /* Centraliza o texto e o botão na vertical */
+    justify-content: space-between; /* Joga o texto para a esquerda e o botão para a direita */
+    padding: 20px 46px; /* Alinha com o padding lateral do <main> */
+    background-color: white;
+    color: black;
+    overflow: hidden;
+}
+
+.hero-conteudo {
+    position: relative;
+    z-index: 2;
+    background: transparent;
+}
+
+.btn-criar-projeto {
+    height: 40px; /* Define uma altura fixa para não esticar */
+    padding: 0 22px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border: none;
+    border-radius: 8px;
+    background-color: #18C6AC;
+    color: #082534;
+    font-size: 14px;
+    font-weight: 700;
+    white-space: nowrap; /* Impede o texto do botão de quebrar linha */
+    cursor: pointer;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.btn-criar-projeto:hover {
+    background-color: #14b099;
+}
+
+.btn-criar-projeto:active {
+    transform: scale(0.99);
+}
+
+
+
+ /* ===== CONTEÚDO ===== */
+ main {
+     padding: 18px 46px 10px;
+ }
+
+ /*====filtros de pesquisa===*/
+ .filtros {
+     display: grid;
+     grid-template-columns: 1fr 155px 160px 110px 110px;
+     gap: 6px;
+     background: #f1f1f1;
+     border-radius: 5px;
+     padding: 4px;
+     box-shadow: 0 1px 5px rgba(0, 0, 0, .14);
+     margin-bottom: 19px;
+ }
+
+ .filtro {
+     height: 27px;
+     border: 1px solid #d3d7d9;
+     border-radius: 3px;
+     background: white;
+     color: #56666d;
+     display: flex;
+     align-items: center;
+     padding: 0 10px;
+     font-size: 11px;
+ }
+
+ .filtro input {
+     width: 100%;
+     border: 0;
+     outline: 0;
+     font-size: 11px;
+ }
+
+ .filtro-icones {
+     margin-right: 8px;
+     font-size: 14px;
+ }
+
+ .clear {
+     justify-content: center;
+ }
+
+ /*===parte do meio===*/
+ .layout {
+     display: grid;
+     grid-template-columns: 1fr 316px;
+     gap: 48px;
+ }
+
+ /*====cabeçalho do lado======*/
+ .section-cabecalho {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     margin: 0 3px 13px;
+ }
+
+ .section-cabecalho h2 {
+     font-size: 23px;
+     color: #29414c;
+ }
+
+ .section-cabecalho h2::after {
+     content: "";
+     display: block;
+     width: 128px;
+     height: 2px;
+     margin-top: 4px;
+     background: var(--cyan);
+ }
+
+ .todos-projetos {
+     color: #00c7bd;
+     font-size: 14px;
+     font-weight: 500;
+
+ }
+
+
+
+ /* ==== Projetos em cards separados ==== */
+ .layout>section {
+     display: flex;
+     flex-direction: column;
+ }
+
+ .projetos-grid {
+     display: grid;
+     grid-template-columns: repeat(3, minmax(0, 1fr));
+     gap: 24px;
+     align-items: stretch;
+ }
+
+ .projeto-card {
+     display: flex;
+     flex-direction: column;
+     min-width: 0;
+     background: #fff;
+     border: 1px solid #d8e0e3;
+     border-radius: 12px;
+     overflow: hidden;
+     box-shadow: 0 2px 8px rgba(0, 0, 0, .08);
+     transition: transform .2s ease, box-shadow .2s ease;
+ }
+
+ .projeto-card:hover {
+     transform: translateY(-3px);
+     box-shadow: 0 6px 16px rgba(0, 0, 0, .12);
+ }
+
+ .projeto-image {
+     height: 150px;
+     flex: 0 0 150px;
+     position: relative;
+     background:
+         linear-gradient(rgba(10, 45, 58, .1), rgba(10, 45, 58, .1)),
+         url("https://images.unsplash.com/photo-1516939884455-1445c8652f83?auto=format&fit=crop&w=700&q=85") center/cover;
+ }
+
+ .projeto-body {
+     display: flex;
+     flex-direction: column;
+     flex: 1;
+     gap: 12px;
+     padding: 16px;
+ }
+
+ .projeto-body h3 {
+     font-size: 17px;
+     line-height: 1.35;
+     color: #29414c;
+ }
+
+ .projeto-body p {
+     color: #64757d;
+     font-size: 13px;
+     line-height: 1.5;
+ }
+
+ .projeto-info {
+     margin-top: auto;
+     display: flex;
+     flex-direction: column;
+     gap: 7px;
+     color: #74838a;
+     font-size: 11px;
+     line-height: 1.4;
+ }
+
+
+ /* ===== LATERAL ===== */
+ .cartao-lado {
+     background: var(--cyan-light);
+     border-radius: 12px;
+     padding: 12px 17px;
+     min-height: 115px;
+     margin-bottom: 8px;
+ }
+ .cartao-lado h3 {
+      font-size: 14px;
+    }
+
+    .cartao-lado p {
+      font-size: 9px;
+      line-height: 1.2;
+      margin-left: 13px;
+      max-width: 180px;
+      color: #36545c;
+    }
+
+    .lado-btn {
+      display: block;
+      background: #00cbbd;
+      color: white;
+      text-align: center;
+      border-radius: 6px;
+      font-size: 10px;
+      padding: 6px;
+      margin: 8px auto 0;
+      width: 194px;
+      font-weight: 700;
+    }
+
+ .cartao-lado-topo {
+     display: flex;
+     align-items: center;
+     gap: 12px;
+     margin-bottom: 6px;
+ }
+ .cartao-lado-icone{
+    font-size: 34px;
+      color: #264a54;
+
+ }
+ .categoria-titulo{
+font-size: 20px;
+margin: 6px 7px 6px;
+ }
+.categoria{
+height: 22px;
+      background: white;
+      border-radius: 3px;
+      margin-bottom: 5px;
+      display: flex;
+      align-items: center;
+      padding: 0 8px;
+      font-size: 9px;
+      box-shadow: 0 1px 2px rgba(0,0,0,.12);
+    }
+
+    .categoria .cat-icon {
+      width: 23px;
+      font-size: 13px;
+    }
+    .categoria .count {
+      margin-left: auto;
+      min-width: 31px;
+      text-align: center;
+      border-radius: 8px;
+      background: #d7f8f3;
+      color: #6ba6a0;
+      font-size: 8px;
+      padding: 2px 5px;
+    }
+
+     .city-card {
+      margin-top: 10px;
+      min-height: 77px;
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      padding: 10px 17px;
+    }
+
+    .city-icon {
+      font-size: 33px;
+    }
+
+    .city-card p {
+      margin: 0;
+      font-size: 9px;
+      max-width: 150px;
+    }
+
+
+
+    /* ===== RODAPÉ ===== */
+    footer {
+      height: 100px;
+      background: #233e49;
+      color: white;
+      display: flex;
+      align-items: center;
+      padding: 0 26px;
+      font-size: 8px;
+    }
+
+    .footer-logo {
+      width: 155px;
+      height: auto;
+      flex-shrink: 0;
+      margin-right: 38px;
+    }
+
+    .footer-links {
+      margin-left: auto;
+      display: flex;
+      gap: 22px;
+      color: #d4dfe1;
+    }
+
+
+  </style>
+  <script>
+  </script>
+</head>
+
+<body>
+
+  <header>
+    <img src="imagens/Logo RecifeHub.png" alt="imagemlogo" class="logo">
+
+
+    <nav class="nav">
+      <a href="index.html">Início</a>
+      <a href="projetos.html">Projetos</a>
+      <a href="sobre.html">Sobre</a>
+      <a href="ajuda.html">Ajuda</a>
+    </nav>
+
+    <div class="barra">
+      <form class="pesquisa" role="search" action="projetos.html" method="get">
+        <span class="pesquisa-icone" aria-hidden="true">⌕</span>
+        <input type="search" class="pesquisa-barra" name="q" placeholder="Buscar projetos, áreas, instituições..."
+          aria-label="Pesquisar projeto" autocomplete="off">
+        <button type="button" class="pesquisa-limpar" aria-label="Limpar busca" hidden>×</button>
+        <button type="submit" class="pesquisa-btn">Buscar</button>
+      </form>
+
+      <button class="btn btn-login" onclick="window.location.href='login.html'">
+        Entrar
+      </button>
+
+      <button class="btn btn-register" onclick="window.location.href='cadastro.html'">
+        Cadastrar
+      </button>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-conteudo">
+      <h1>Projetos </h1>
+      <p>Encontre projetos que estão transformando Recife e contribua para construir uma cidade melhor.</p>
+    </div>
+    <button type="button" class="btn-criar-projeto" onclick="abrirModalCriarProjeto()">
+  <span>+ Criar Projeto</span>
+</button>
+
+
+
+  </section>
+  <!-- Conteudo-->
+  <main>
+    <!--filtros de pesquisa-->
+    <div class="filtros">
+      <label class="filtro">
+        <span class="filtro-icones">⌕</span>
+        <input type="text" placeholder="Buscar por nome do projeto, área de conhecimento, palavra-chave...">
+      </label>
+
+      <div>
+        <select class="filtro" id="subject" name="subject">
+          <option value=" Em Desenvolvimento"><span class="filtro-icones">▤ </span>Em Desenvolvimento</option>
+          <option value="Pronto">Pronto</option>
+          <option value="Fase Incial">Fase Incial</option>
+        </select>
+      </div>
+
+
+
+      <div>
+        <select class="filtro" id="subject" name="subject">
+          <option value=" Em Desenvolvimento"><span class="filtro-icones">⌂ </span>Área de Conhecimento</option>
+          <option value="Pronto">Pronto</option>
+          <option value="Fase Incial">Fase Incial</option>
+        </select>
+      </div>
+
+      <div>
+        <select class="filtro" id="subject" name="subject">
+          <option value=" Em Desenvolvimento"><span class="filtro-icones">◷ </span>Status</option>
+          <option value="Pronto">Pronto</option>
+          <option value="Fase Incial">Fase Incial</option>
+        </select>
+      </div>
+
+      <button type="button" class="filtro clear" onclick="limparFiltros()">Limpar filtros</button>
+    </div>
+
+    <div class="layout">
+      <section>
+        <div class="section-cabecalho">
+          <h2>Projetos em destaque</h2>
+          <a href="#" class="todos-projetos">Ver todos os projetos →</a>
+        </div>
+
+        <div class="projetos-grid">
+
+    <article class="projeto-card">
+        <div class="projeto-image">
+            <span class="tag">Pesquisa</span>
+        </div>
+
+        <div class="projeto-body">
+            <h3>Monitoramento da qualidade da água no Rio Capibaribe</h3>
+
+            <p>
+                Projeto de pesquisa que avalia os impactos
+                da poluição na qualidade da água e propõe
+                soluções sustentáveis para o rio.
+            </p>
+
+            <div class="projeto-info">
+                <div>◉ Universidade Federal de Pernambuco (UFPE)</div>
+                <div>⌖ Recife - PE</div>
+            </div>
+        </div>
+    </article>
+
+    <!-- Outros projetos seguem o mesmo padrão -->
+     <article class="projeto-card">
+        <div class="projeto-image">
+            <span class="tag">Pesquisa</span>
+        </div>
+
+        <div class="projeto-body">
+            <h3>Monitoramento da qualidade da água no Rio Capibaribe</h3>
+
+            <p>
+                Projeto de pesquisa que avalia os impactos
+                da poluição na qualidade da água e propõe
+                soluções sustentáveis para o rio.
+            </p>
+
+            <div class="projeto-info">
+                <div>◉ Universidade Federal de Pernambuco (UFPE)</div>
+                <div>⌖ Recife - PE</div>
+            </div>
+        </div>
+    </article>
+
+    <!-- Outros projetos seguem o mesmo padrão -->
+     <article class="projeto-card">
+        <div class="projeto-image">
+            <span class="tag">Pesquisa</span>
+        </div>
+
+        <div class="projeto-body">
+            <h3>Monitoramento da qualidade da água no Rio Capibaribe</h3>
+
+            <p>
+                Projeto de pesquisa que avalia os impactos
+                da poluição na qualidade da água e propõe
+                soluções sustentáveis para o rio.
+            </p>
+
+            <div class="projeto-info">
+                <div>◉ Universidade Federal de Pernambuco (UFPE)</div>
+                <div>⌖ Recife - PE</div>
+            </div>
+        </div>
+    </article>
+
+    <!-- Outros projetos seguem o mesmo padrão -->
+      <article class="projeto-card">
+        <div class="projeto-image">
+            <span class="tag">Pesquisa</span>
+        </div>
+
+        <div class="projeto-body">
+            <h3>Monitoramento da qualidade da água no Rio Capibaribe</h3>
+
+            <p>
+                Projeto de pesquisa que avalia os impactos
+                da poluição na qualidade da água e propõe
+                soluções sustentáveis para o rio.
+            </p>
+
+            <div class="projeto-info">
+                <div>◉ Universidade Federal de Pernambuco (UFPE)</div>
+                <div>⌖ Recife - PE</div>
+            </div>
+        </div>
+    </article>
+
+    <!-- Outros projetos seguem o mesmo padrão -->
+
+</div>
+      </section>
+
+      <aside>
+        <div class="cartao-lado">
+          <div class="cartao-lado-topo">
+            <span class="cartao-lado-icone">♧</span>
+            <h3>Tem um projeto?</h3>
+          </div>
+
+          <p>
+            Envie sua proposta e conecte-se
+            com pessoas e instituições que podem
+            ajudar a torná-la realidade.
+          </p>
+
+          <a href="#" class="lado-btn">Cadastrar projeto →</a>
+        </div>
+
+        <h2 class="categoria-titulo">Categorias de projetos</h2>
+
+        <div class="categoria">
+          <span class="cat-icon">⌂</span>
+          Pesquisa
+          <span class="count">245</span>
+        </div>
+
+        <div class="categoria">
+          <span class="cat-icon">▤</span>
+          Teses
+          <span class="count">118</span>
+        </div>
+
+        <div class="categoria">
+          <span class="cat-icon">▤</span>
+          Dissertações
+          <span class="count">67</span>
+        </div>
+
+        <div class="categoria">
+          <span class="cat-icon">⚙</span>
+          Protótipos
+          <span class="count">95</span>
+        </div>
+
+        <div class="categoria">
+          <span class="cat-icon">♧</span>
+          Projetos de Extensão
+          <span class="count">87</span>
+        </div>
+
+        <div class="categoria">
+          <span class="cat-icon">•••</span>
+          Outros
+          <span class="count">43</span>
+        </div>
+
+        <div class="cartao-lado city-card">
+          <span class="city-icon">♙</span>
+          <p>
+            Juntos por uma cidade<br>
+            mais inovadora e sustentável.
+          </p>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer>
+    <img src="imagens/Logo RecifeHub.png" alt="RecifeHub" class="footer-logo">
+    <div>Ideias que constroem o futuro do Recife</div>
+
+    <div class="footer-links">
+      <a href="#">Termos de Uso</a>
+      <a href="#">Contato</a>
+      <a href="#">Privacidade</a>
+    </div>
+  </footer>
+
+</body>
+
+</html>
